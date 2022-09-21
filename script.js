@@ -11,7 +11,7 @@
 //------------------------------------------------------------------------------
 // Library
 //------------------------------------------------------------------------------
-function createTitle(title) {
+function setTitle(title) {
   document.title = title;
 }
 
@@ -29,7 +29,7 @@ function appendH1ToBody(text) {
 // Content
 //------------------------------------------------------------------------------
 function createHtmlPage() {
-  createTitle('Vivus Viral Shopping Cart');
+  setTitle('Vivus Viral Shopping Cart');
   removeBodyContent();
   appendH1ToBody('Welcome to the fun!');
 }
