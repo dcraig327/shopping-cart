@@ -1,24 +1,45 @@
+////////////////////////////////////////////////////////////////////////////////
+// Welcome to the fun!
+//
+// My first DOM manip project
+////////////////////////////////////////////////////////////////////////////////
 
+//------------------------------------------------------------------------------
+// Globals
+//------------------------------------------------------------------------------
 
-
-function createTitle() {
-  const title = 'Vivus Viral Shopping Cart';
+//------------------------------------------------------------------------------
+// Library
+//------------------------------------------------------------------------------
+function createTitle(title) {
   document.title = title;
 }
 
-function createH1Header() {
+function removeBodyContent() {
+  document.body.innerHTML = "";
+}
+
+function appendH1ToBody(text) {
   const h1 = document.createElement('h1');
-  h1.textContent = 'Welcome to the fun!';
+  h1.textContent = text;
   document.body.appendChild(h1);
 }
 
+//------------------------------------------------------------------------------
+// Content
+//------------------------------------------------------------------------------
 function createHtmlPage() {
-  createTitle();
-  createH1Header();
+  createTitle('Vivus Viral Shopping Cart');
+  removeBodyContent();
+  appendH1ToBody('Welcome to the fun!');
 }
 
+//------------------------------------------------------------------------------
+// Main
+//------------------------------------------------------------------------------
 function main() {
   createHtmlPage();
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 main();
