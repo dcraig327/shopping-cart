@@ -35,6 +35,20 @@ function addCssFile(fileName) {
   head.appendChild(link);
 }
 
+function toggleButton() {
+  this.classList.toggle("button-enabled");
+  this.classList.toggle("button-disabled");
+  this.removeEventListener("click", toggleButton);
+}
+function enableButton(button) {
+  button.classList.add("button-enabled");
+  button.classList.remove("button-disabled");
+}
+function disableButton(button) {
+  button.classList.remove("button-enabled");
+  button.classList.add("button-disabled");
+}
+
 //------------------------------------------------------------------------------
 // Content
 //------------------------------------------------------------------------------
@@ -63,7 +77,9 @@ function createStore() {
     "store-item-button-add",
     "add"
   );
-  storeButton1.classList.add("button-enabled");
+  enableButton(storeButton1);
+  storeButton1.addEventListener("click", toggleButton);
+
   const storeItem2 = appendElement(storeItems, "div", "store-item");
   appendElement(storeItem2, "div", "store-item-image", "placeholder");
   appendElement(storeItem2, "div", "store-item-name", "pineapple");
@@ -73,7 +89,9 @@ function createStore() {
     "store-item-button-add",
     "add"
   );
-  storeButton2.classList.add("button-enabled");
+  enableButton(storeButton2);
+  storeButton2.addEventListener("click", toggleButton);
+
   const storeItem3 = appendElement(storeItems, "div", "store-item");
   appendElement(storeItem3, "div", "store-item-image", "placeholder");
   appendElement(storeItem3, "div", "store-item-name", "grape");
@@ -83,7 +101,8 @@ function createStore() {
     "store-item-button-add",
     "add"
   );
-  storeButton3.classList.add("button-enabled");
+  enableButton(storeButton3);
+  storeButton3.addEventListener("click", toggleButton);
 }
 
 function createCart() {
@@ -99,7 +118,8 @@ function createCart() {
     "cart-item-button-remove",
     "remove"
   );
-  cartButton1.classList.add("button-disabled");
+  disableButton(cartButton1);
+
   const cartItem2 = appendElement(cartItems, "div", "cart-item");
   appendElement(cartItem2, "div", "cart-item-image", "placeholder");
   appendElement(cartItem2, "div", "cart-item-name", "pineapple");
@@ -109,7 +129,8 @@ function createCart() {
     "cart-item-button-remove",
     "remove"
   );
-  cartButton2.classList.add("button-disabled");
+  disableButton(cartButton2);
+
   const cartItem3 = appendElement(cartItems, "div", "cart-item");
   appendElement(cartItem3, "div", "cart-item-image", "placeholder");
   appendElement(cartItem3, "div", "cart-item-name", "grape");
@@ -119,7 +140,7 @@ function createCart() {
     "cart-item-button-remove",
     "remove"
   );
-  cartButton3.classList.add("button-disabled");
+  disableButton(cartButton3);
 }
 
 function createPage() {
